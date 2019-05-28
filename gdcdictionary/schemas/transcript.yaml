@@ -1,0 +1,47 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "transcript"
+title: Transcript
+type: object
+category: genomic
+program: '*'
+project: '*'
+description: >
+  Transcript
+additionalProperties: false
+submittable: false
+validators: null
+
+systemProperties:
+  - id
+
+required:
+  - transcript_id
+
+uniqueKeys:
+  - [transcript_id]
+
+links:
+- name: gene_id
+  backref: transcript
+  label: gene
+  target_type: gene
+
+properties:
+  transcript_id:
+    type: string
+    systemAlias: node_id
+  gene_id:
+    type: string
+  chromosome:
+    type: string
+  start:
+    type: integer
+  end:
+    type: integer
+  strand:
+    type: string
+  genome:
+    type: string
+  biotype:
+    type: string
