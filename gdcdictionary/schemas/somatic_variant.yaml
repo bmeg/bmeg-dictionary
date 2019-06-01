@@ -19,9 +19,16 @@ required: []
 
 uniqueKeys: []
 
-links: []
+edge:
+  label: somatic_variant
+  from: aliquot
+  to: allele_id
 
 properties:
+  aliquot:
+    type: string
+  allele_id:
+    type: string
   ref:
     type: string
   alt:
@@ -47,5 +54,3 @@ properties:
     type: string
   ensembl_gene:
     type: string
-
-    

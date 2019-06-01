@@ -43,6 +43,7 @@ properties:
      - TPM
      - RKPM
      - GENE_TPM
+     - OTHER
   method:
     type: string
   values:
