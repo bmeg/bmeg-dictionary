@@ -19,7 +19,11 @@ required: []
 
 uniqueKeys: []
 
-links: []
+links:
+  - name: genes
+    label: genes
+    target_type: gene
+
 
 properties:
   allele_id:
@@ -49,4 +53,6 @@ properties:
     type: string
   dbSNP_RS:
     type: string
-    
+  genes:
+    type: array
+    items: string
