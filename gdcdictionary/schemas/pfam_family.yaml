@@ -17,21 +17,18 @@ properties:
   description:
     type: string
   gene_ontology_terms:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   id:
     $ref: _definitions.yaml#/UUID
     systemAlias: node_id
   pfam_clans:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   pfam_id:
     type: string
   project_id:
     $ref: _definitions.yaml#/project_id
   proteins:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   submitter_id:
     type:
     - string
@@ -41,13 +38,13 @@ properties:
   updated_datetime:
     $ref: _definitions.yaml#/datetime
 required:
-- pfam_id
-- type
 - submitter_id
 - accession
 - project_id
 - description
+- type
 - comments
+- pfam_id
 submittable: true
 systemProperties:
 - id

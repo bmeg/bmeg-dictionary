@@ -24,8 +24,7 @@ properties:
   protein_id:
     type: string
   proteins:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   submitter_id:
     type:
     - string
@@ -35,9 +34,9 @@ properties:
   updated_datetime:
     $ref: _definitions.yaml#/datetime
 required:
-- protein_id
-- project_id
 - submitter_id
+- project_id
+- protein_id
 submittable: true
 systemProperties:
 - id

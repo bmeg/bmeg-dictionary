@@ -9,8 +9,7 @@ program: '*'
 project: '*'
 properties:
   alleles:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   chromosome:
     type: string
   created_datetime:
@@ -20,18 +19,15 @@ properties:
   end:
     type: integer
   g2_p_associations:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   gene_id:
     type: string
   gene_ontology_terms:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   genome:
     type: string
   genomic_features:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   id:
     $ref: _definitions.yaml#/UUID
     systemAlias: node_id
@@ -48,23 +44,22 @@ properties:
   symbol:
     type: string
   transcripts:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   type:
     type: string
   updated_datetime:
     $ref: _definitions.yaml#/datetime
 required:
+- submitter_id
+- project_id
+- description
+- chromosome
+- strand
+- start
 - genome
 - end
 - gene_id
 - symbol
-- description
-- submitter_id
-- project_id
-- start
-- strand
-- chromosome
 submittable: true
 systemProperties:
 - id

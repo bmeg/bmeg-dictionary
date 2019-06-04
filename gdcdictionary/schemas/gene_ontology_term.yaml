@@ -31,11 +31,9 @@ properties:
   definition:
     type: string
   gene_ontology_terms:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   genes:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   go_id:
     type: string
   id:
@@ -46,8 +44,7 @@ properties:
   namespace:
     type: string
   pfam_families:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   project_id:
     $ref: _definitions.yaml#/project_id
   submitter_id:
@@ -63,14 +60,14 @@ properties:
   xref:
     type: array
 required:
-- definition
-- namespace
-- go_id
+- submitter_id
+- synonym
+- project_id
 - name
 - xref
-- submitter_id
-- project_id
-- synonym
+- go_id
+- definition
+- namespace
 submittable: true
 systemProperties:
 - id

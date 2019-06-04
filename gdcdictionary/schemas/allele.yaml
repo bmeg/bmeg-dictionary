@@ -17,8 +17,7 @@ properties:
   alternate_bases:
     type: string
   callsets:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   chromosome:
     type: string
   created_datetime:
@@ -38,11 +37,9 @@ properties:
     - 'null'
     - string
   g2_p_associations:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   genes:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   genome:
     type: string
   hugo_symbol:
@@ -69,16 +66,16 @@ properties:
   updated_datetime:
     $ref: _definitions.yaml#/datetime
 required:
+- submitter_id
+- project_id
+- reference_bases
+- chromosome
+- strand
+- start
 - genome
+- hugo_symbol
 - end
 - alternate_bases
-- reference_bases
-- submitter_id
-- strand
-- project_id
-- start
-- chromosome
-- hugo_symbol
 submittable: true
 systemProperties:
 - id

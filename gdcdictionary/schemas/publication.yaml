@@ -27,8 +27,7 @@ properties:
     - 'null'
     - string
   g2_p_associations:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   id:
     $ref: _definitions.yaml#/UUID
     systemAlias: node_id
@@ -53,9 +52,9 @@ properties:
   url:
     type: string
 required:
-- project_id
 - url
 - submitter_id
+- project_id
 submittable: true
 systemProperties:
 - id

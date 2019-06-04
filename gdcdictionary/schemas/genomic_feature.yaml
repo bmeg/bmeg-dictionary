@@ -33,11 +33,9 @@ properties:
     - 'null'
     - integer
   g2_p_associations:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   genes:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   genome:
     type:
     - 'null'
@@ -68,9 +66,9 @@ properties:
   updated_datetime:
     $ref: _definitions.yaml#/datetime
 required:
+- submitter_id
 - project_id
 - name
-- submitter_id
 submittable: true
 systemProperties:
 - id

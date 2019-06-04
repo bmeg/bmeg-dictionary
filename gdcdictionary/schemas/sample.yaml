@@ -15,11 +15,9 @@ program: '*'
 project: '*'
 properties:
   aliquots:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   cases:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   cellline_attributes:
     type:
     - 'null'
@@ -50,9 +48,9 @@ properties:
   updated_datetime:
     $ref: _definitions.yaml#/datetime
 required:
-- project_id
-- sample_id
 - submitter_id
+- sample_id
+- project_id
 submittable: true
 systemProperties:
 - id

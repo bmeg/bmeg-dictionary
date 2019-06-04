@@ -45,11 +45,9 @@ program: '*'
 project: '*'
 properties:
   alleles:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   compounds:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   created_datetime:
     $ref: _definitions.yaml#/datetime
   description:
@@ -59,11 +57,9 @@ properties:
     - 'null'
     - string
   genes:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   genomic_features:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   id:
     $ref: _definitions.yaml#/UUID
     systemAlias: node_id
@@ -72,13 +68,11 @@ properties:
     - 'null'
     - string
   phenotypes:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   project_id:
     $ref: _definitions.yaml#/project_id
   publications:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   response_type:
     type:
     - 'null'
@@ -102,10 +96,10 @@ properties:
   updated_datetime:
     $ref: _definitions.yaml#/datetime
 required:
-- project_id
+- submitter_id
 - description
 - source
-- submitter_id
+- project_id
 submittable: true
 systemProperties:
 - id

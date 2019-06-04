@@ -17,27 +17,23 @@ properties:
   aliquot_id:
     type: string
   callsets:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   cellline_attributes:
     type:
     - 'null'
     - object
   copy_number_alterations:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   created_datetime:
     $ref: _definitions.yaml#/datetime
   drug_responses:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   gdc_attributes:
     type:
     - 'null'
     - object
   gene_expressions:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   gtex_attributes:
     type:
     - 'null'
@@ -48,23 +44,21 @@ properties:
   project_id:
     $ref: _definitions.yaml#/project_id
   samples:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   submitter_id:
     type:
     - string
     - 'null'
   transcript_expressions:
-    type:
-      $ref: _definitions.yaml#/to_many
+    $ref: _definitions.yaml#/to_many
   type:
     type: string
   updated_datetime:
     $ref: _definitions.yaml#/datetime
 required:
+- submitter_id
 - project_id
 - aliquot_id
-- submitter_id
 submittable: true
 systemProperties:
 - id
