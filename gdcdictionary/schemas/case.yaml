@@ -7,7 +7,7 @@ links:
 - backref: cases
   label: projects
   multiplicity: many_to_many
-  name: projects
+  name: project
   required: false
   target_type: project
 - backref: cases
