@@ -16,6 +16,12 @@ links:
   name: projects
   required: false
   target_type: project
+- backref: samples
+  label: phenotypes
+  multiplicity: many_to_many
+  name: phenotypes
+  required: false
+  target_type: phenotype
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
@@ -41,6 +47,8 @@ properties:
   id:
     $ref: _definitions.yaml#/UUID
     systemAlias: node_id
+  phenotypes:
+    $ref: _definitions.yaml#/to_many
   project_id:
     $ref: _definitions.yaml#/project_id
   projects:
