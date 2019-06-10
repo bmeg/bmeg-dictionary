@@ -18,7 +18,7 @@ properties:
     type: string
   end:
     type: integer
-  g2_p_associations:
+  g2p_associations:
     $ref: _definitions.yaml#/to_many
   gene_id:
     type: string

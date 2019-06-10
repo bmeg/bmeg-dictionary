@@ -19,8 +19,6 @@ properties:
     systemAlias: node_id
   program_id:
     type: string
-  project_id:
-    $ref: _definitions.yaml#/project_id
   projects:
     $ref: _definitions.yaml#/to_many
   submitter_id:
@@ -34,17 +32,14 @@ properties:
 required:
 - submitter_id
 - program_id
-- project_id
 submittable: true
 systemProperties:
 - id
-- project_id
 - created_datetime
 - updated_datetime
 title: Program
 type: object
 uniqueKeys:
 - - id
-- - project_id
   - submitter_id
 validators: null

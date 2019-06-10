@@ -71,8 +71,6 @@ properties:
     - number
   project_id:
     $ref: _definitions.yaml#/project_id
-  source:
-    type: string
   submitter_compound_id:
     type: string
   submitter_id:
