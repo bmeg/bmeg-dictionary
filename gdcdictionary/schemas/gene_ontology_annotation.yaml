@@ -33,6 +33,9 @@ properties:
     systemAlias: to
   evidence:
     type: string
+  id:
+    $ref: _definitions.yaml#/UUID
+    systemAlias: node_id
   title:
     type: string
   references:

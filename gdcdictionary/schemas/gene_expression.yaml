@@ -40,6 +40,10 @@ properties:
     $ref: _definitions.yaml#/datetime
   values:
     type: object
+    propertyNames:
+      pattern: "^ENSG[0-9]+"
+    additionalProperties: 
+      type: number
 required:
 - submitter_id
 - project_id

@@ -10,6 +10,33 @@ links:
   name: gene
   required: false
   target_type: gene
+  properties:
+    ref:
+      type: string
+    alt:
+      type: string
+    t_depth:
+      type: integer
+    t_ref_count:
+      type: integer
+    t_alt_count:
+      type: integer
+    n_depth:
+      type: integer
+    n_ref_count:
+      type: integer
+    n_alt_count:
+      type: integer
+    filter:
+      type: string
+    methods:
+      type: array
+      items:
+        type: string
+    ensembl_transcript:
+      type: string
+    ensembl_gene:
+      type: string
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
@@ -19,7 +46,7 @@ properties:
   callsets:
     $ref: _definitions.yaml#/to_many
   chromosome:
-    type: string
+     $ref: _definitions.yaml#/chromosome
   created_datetime:
     $ref: _definitions.yaml#/datetime
   dbSNP_RS:
@@ -41,7 +68,7 @@ properties:
   gene:
     $ref: _definitions.yaml#/to_one
   genome:
-    type: string
+    $ref: _definitions.yaml#/genome
   hugo_symbol:
     type: string
   id:
@@ -54,7 +81,7 @@ properties:
   start:
     type: integer
   strand:
-    type: string
+    $ref: _definitions.yaml#/strand
   submitter_id:
     type:
     - string

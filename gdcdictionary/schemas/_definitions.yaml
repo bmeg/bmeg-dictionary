@@ -276,3 +276,48 @@ ubiquitous_properties:
     $ref: "#/datetime"
   updated_datetime:
     $ref: "#/datetime"
+
+chromosome:
+  type: string
+  description: "Reference to a  human chromosome"
+  enum:
+    - "1"
+    - "2"
+    - "3"
+    - "4"
+    - "5"
+    - "6"
+    - "7"
+    - "8"
+    - "9"
+    - "10"
+    - "11"
+    - "12"
+    - "13"
+    - "14"
+    - "15"
+    - "16"
+    - "17"
+    - "18"
+    - "19"
+    - "20"
+    - "21"
+    - "22"
+    - "X"
+    - "Y"
+    - "M"
+
+strand:
+  type: string
+  description: "Reference to a human chromosome strand"
+  enum:
+    - "+"
+    - "-"
+
+genome:
+  type: string
+  description: "Reference to a human genome build"
+  enum:
+    - "GRCh37"
+    - "GRCh38"
+

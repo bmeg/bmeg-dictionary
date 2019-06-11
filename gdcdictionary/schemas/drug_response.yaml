@@ -81,7 +81,6 @@ properties:
     $ref: _definitions.yaml#/datetime
 required:
 - submitter_id
-- source
 - submitter_compound_id
 - project_id
 submittable: true

@@ -11,7 +11,7 @@ properties:
   alleles:
     $ref: _definitions.yaml#/to_many
   chromosome:
-    type: string
+    $ref: _definitions.yaml#/chromosome
   created_datetime:
     $ref: _definitions.yaml#/datetime
   description:
@@ -25,7 +25,7 @@ properties:
   gene_ontology_terms:
     $ref: _definitions.yaml#/to_many
   genome:
-    type: string
+    $ref: _definitions.yaml#/genome
   genomic_features:
     $ref: _definitions.yaml#/to_many
   id:
@@ -36,7 +36,7 @@ properties:
   start:
     type: integer
   strand:
-    type: string
+    $ref: _definitions.yaml#/strand
   submitter_id:
     type:
     - string

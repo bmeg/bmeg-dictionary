@@ -17,7 +17,7 @@ properties:
   biotype:
     type: string
   chromosome:
-    type: string
+    $ref: _definitions.yaml#/chromosome
   created_datetime:
     $ref: _definitions.yaml#/datetime
   end:
@@ -27,7 +27,7 @@ properties:
   gene:
     $ref: _definitions.yaml#/to_one
   genome:
-    type: string
+    $ref: _definitions.yaml#/genome
   id:
     $ref: _definitions.yaml#/UUID
     systemAlias: node_id
@@ -38,7 +38,7 @@ properties:
   start:
     type: integer
   strand:
-    type: string
+    $ref: _definitions.yaml#/strand
   submitter_id:
     type:
     - string

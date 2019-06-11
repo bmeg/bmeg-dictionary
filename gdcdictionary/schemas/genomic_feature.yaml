@@ -19,9 +19,9 @@ properties:
     - 'null'
     - array
   chromosome:
-    type:
-    - 'null'
-    - string
+    oneOf:
+      - type: 'null'
+      - $ref: _definitions.yaml#/chromosome
   created_datetime:
     $ref: _definitions.yaml#/datetime
   effect:
@@ -37,9 +37,9 @@ properties:
   genes:
     $ref: _definitions.yaml#/to_many
   genome:
-    type:
-    - 'null'
-    - string
+    oneOf:
+      - type: 'null'
+      - $ref: _definitions.yaml#/genome
   id:
     $ref: _definitions.yaml#/UUID
     systemAlias: node_id

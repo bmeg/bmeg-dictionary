@@ -15,7 +15,7 @@ program: '*'
 project: '*'
 properties:
   chromosome:
-    type: string
+    $ref: _definitions.yaml#/chromosome
   created_datetime:
     $ref: _definitions.yaml#/datetime
   end:
@@ -23,7 +23,7 @@ properties:
   exon_id:
     type: string
   genome:
-    type: string
+    $ref: _definitions.yaml#/genome
   id:
     $ref: _definitions.yaml#/UUID
     systemAlias: node_id
@@ -32,7 +32,7 @@ properties:
   start:
     type: integer
   strand:
-    type: string
+    $ref: _definitions.yaml#/strand
   submitter_id:
     type:
     - string

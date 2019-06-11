@@ -19,13 +19,12 @@ properties:
   created_datetime:
     $ref: _definitions.yaml#/datetime
   id:
-    type: string
+    $ref: _definitions.yaml#/UUID
+    systemAlias: node_id
   method:
     type: string
   project_id:
     $ref: _definitions.yaml#/project_id
-  source:
-    type: string
   submitter_id:
     type:
     - string
@@ -36,12 +35,14 @@ properties:
     $ref: _definitions.yaml#/datetime
   values:
     type: object
+    propertyNames:
+      pattern: "^ENSG[0-9]+"
+    additionalProperties:
+      type: number
 required:
 - submitter_id
-- source
 - project_id
 - values
-- id
 - method
 submittable: true
 systemProperties:

@@ -23,7 +23,7 @@ properties:
   created_datetime:
     $ref: _definitions.yaml#/datetime
   genome:
-    type: string
+    $ref: _definitions.yaml#/genome
   id:
     $ref: _definitions.yaml#/UUID
     systemAlias: node_id
