@@ -16,6 +16,11 @@ links:
   name: pfam_families
   required: false
   target_type: pfam_family
+  properties:
+    start:
+      type: integer
+    end:
+      type: integer
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'

@@ -10,12 +10,30 @@ links:
   name: genes
   required: false
   target_type: gene
+  properties:
+    evidence:
+      type: string
+    references:
+      type: array
+      items:
+        type: string
+    title:
+      type: string
 - backref: gene_ontology_terms
   label: pfam_families
   multiplicity: many_to_many
   name: pfam_families
   required: false
   target_type: pfam_family
+  properties:
+    evidence:
+      type: string
+    references:
+      type: array
+      items:
+        type: string
+    title:
+      type: string
 - backref: parent_terms
   label: child_terms
   multiplicity: many_to_many
