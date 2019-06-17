@@ -10,6 +10,33 @@ links:
   name: alleles
   required: false
   target_type: allele
+  properties:
+    ref:
+      type: string
+    alt:
+      type: string
+    t_depth:
+      type: integer
+    t_ref_count:
+      type: integer
+    t_alt_count:
+      type: integer
+    n_depth:
+      type: integer
+    n_ref_count:
+      type: integer
+    n_alt_count:
+      type: integer
+    filter:
+      type: string
+    methods:
+      type: array
+      items:
+        type: string
+    ensembl_transcript:
+      type: string
+    ensembl_gene:
+      type: string
 - backref: callsets
   label: aliquots
   multiplicity: many_to_many
