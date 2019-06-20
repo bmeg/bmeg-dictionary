@@ -20,6 +20,8 @@ properties:
     $ref: _definitions.yaml#/datetime
   method:
     type: string
+  metric:
+    type: string
   project_id:
     $ref: _definitions.yaml#/project_id
   submitter_id:
@@ -33,7 +35,9 @@ properties:
   values:
     type: object
     additionalProperties:
-      type: number
+      type: 
+      - number
+      - 'null'
 required:
 - submitter_id
 - project_id
