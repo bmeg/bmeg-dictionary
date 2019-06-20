@@ -1,0 +1,51 @@
+$schema: http://json-schema.org/draft-04/schema#
+additionalProperties: false
+category: data_file
+description: Definitions for File
+id: file
+namespace: http://gdc.nci.nih.gov
+program: '*'
+project: '*'
+properties:
+  md5:
+    type: string
+  path:
+    type: string
+  input_to:
+    $ref: _definitions.yaml#/to_many
+  created_by:
+    $ref: _definitions.yaml#/to_one
+  id:
+    $ref: _definitions.yaml#/UUID
+    systemAlias: node_id
+  project_id:
+    $ref: _definitions.yaml#/project_id
+  submitter_id:
+    type:
+    - string
+    - 'null'
+  type:
+    type: string
+  created_datetime:
+    $ref: _definitions.yaml#/datetime
+  updated_datetime:
+    $ref: _definitions.yaml#/datetime
+required:
+- submitter_id
+- project_id
+- md5
+- cmd
+- filename
+submittable: true
+systemProperties:
+- id
+- project_id
+- created_datetime
+- updated_datetime
+title: Command
+type: object
+uniqueKeys:
+- - id
+- - project_id
+  - submitter_id
+validators: null
