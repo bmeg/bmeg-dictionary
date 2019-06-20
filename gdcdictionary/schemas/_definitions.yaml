@@ -277,6 +277,7 @@ ubiquitous_properties:
   updated_datetime:
     $ref: "#/datetime"
 
+# TODO: add scaffolds etc from GRCh37.87
 chromosome:
   type: string
   description: "Reference to a  human chromosome"
@@ -305,7 +306,7 @@ chromosome:
     - "22"
     - "X"
     - "Y"
-    - "M"
+    - "MT"
 
 strand:
   type: string
@@ -320,4 +321,14 @@ genome:
   enum:
     - "GRCh37"
     - "GRCh38"
+
+expression_metric:
+  type: string
+  description: "Expression metric"
+  enum:
+    - "GENE_TPM"
+    - "TPM"
+    - "RPKM"
+    - "FPKM"
+    - "RAW_COUNT"
 

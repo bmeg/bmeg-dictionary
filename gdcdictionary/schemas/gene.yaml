@@ -11,7 +11,7 @@ properties:
   alleles:
     $ref: _definitions.yaml#/to_many
   chromosome:
-    $ref: _definitions.yaml#/chromosome
+    type: string
   created_datetime:
     $ref: _definitions.yaml#/datetime
   description:

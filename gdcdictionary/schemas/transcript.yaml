@@ -17,7 +17,7 @@ properties:
   biotype:
     type: string
   chromosome:
-    $ref: _definitions.yaml#/chromosome
+    type: string
   created_datetime:
     $ref: _definitions.yaml#/datetime
   end:
