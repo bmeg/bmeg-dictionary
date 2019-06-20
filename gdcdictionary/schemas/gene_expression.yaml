@@ -24,10 +24,7 @@ properties:
   method:
     type: string
   metric:
-    enum:
-    - TPM
-    - RPKM
-    - GENE_TPM
+    $ref: _definitions.yaml#/expression_metric
   project_id:
     $ref: _definitions.yaml#/project_id
   submitter_id:
