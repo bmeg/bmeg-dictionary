@@ -20,7 +20,7 @@ properties:
     $ref: _definitions.yaml#/datetime
   drug_responses:
     $ref: _definitions.yaml#/to_many
-  g2_p_associations:
+  g2p_associations:
     $ref: _definitions.yaml#/to_many
   id:
     $ref: _definitions.yaml#/UUID

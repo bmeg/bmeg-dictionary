@@ -12,7 +12,7 @@ properties:
     $ref: _definitions.yaml#/to_many
   created_datetime:
     $ref: _definitions.yaml#/datetime
-  g2_p_associations:
+  g2p_associations:
     $ref: _definitions.yaml#/to_many
   id:
     $ref: _definitions.yaml#/UUID

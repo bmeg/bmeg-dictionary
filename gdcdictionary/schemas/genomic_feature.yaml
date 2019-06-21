@@ -32,7 +32,7 @@ properties:
     type:
     - 'null'
     - integer
-  g2_p_associations:
+  g2p_associations:
     $ref: _definitions.yaml#/to_many
   genes:
     $ref: _definitions.yaml#/to_many
