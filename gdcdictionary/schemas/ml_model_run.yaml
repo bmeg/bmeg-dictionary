@@ -1,0 +1,54 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "ml_model_run"
+title: MLModelRun
+type: object
+category: analysis
+program: '*'
+project: '*'
+description: >
+  The application of a ML model on a dataset
+
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+
+required: []
+
+uniqueKeys:
+  - [id]
+
+links:
+  - name: model_id
+    backref: model_run
+    label: model
+    target_type: ml_model
+
+properties:
+  id:
+    type: string
+    systemAlias: node_id
+  model_id:
+    type: string
+  performance:
+    type: array
+    items:
+      type: object
+      properties:
+        theshold:
+          type: float
+        tp:
+          description: True Positive Count
+          type: integer
+        fp:
+          description: False Positive Count
+          type: integer
+        tn:
+          description: True Negative Count
+          type: integer
+        fn:
+          description: False Negative Count
+          type: integer

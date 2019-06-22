@@ -1,0 +1,47 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "ml_model"
+title: MLModel
+type: object
+category: analysis
+program: '*'
+project: '*'
+description: >
+  Machine Learning Based Model
+
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+
+required: []
+
+uniqueKeys:
+  - [id]
+
+links:
+  - name: phenotype
+    backref: model
+    label: phenotype
+    target_type: phenotype
+
+properties:
+  id:
+    type: string
+    systemAlias: node_id
+
+  phenotype:
+    type: string
+
+  training_set:
+    type: array
+    items: string
+
+  features:
+    type: array
+    items: string
+
+  docker:
+    type: string
