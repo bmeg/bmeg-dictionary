@@ -1,8 +1,35 @@
 $schema: http://json-schema.org/draft-04/schema#
-additionalProperties: false
+
+id: command
+title: Command
+type: object
+namespace: http://gdc.nci.nih.gov
+program: '*'
+project: '*'
 category: data_file
 description: Definitions for DVC Command
-id: command
+additionalProperties: false
+submittable: true
+validators: null
+
+required:
+- submitter_id
+- project_id
+- md5
+- cmd
+- filename
+
+systemProperties:
+- id
+- project_id
+- created_datetime
+- updated_datetime
+
+uniqueKeys:
+- - id
+- - project_id
+  - submitter_id
+
 links:
 - backref: input_to
   label: reads
@@ -16,9 +43,7 @@ links:
   name: writes
   required: false
   target_type: file
-namespace: http://gdc.nci.nih.gov
-program: '*'
-project: '*'
+
 properties:
   md5:
     type: string
@@ -45,22 +70,4 @@ properties:
     $ref: _definitions.yaml#/datetime
   updated_datetime:
     $ref: _definitions.yaml#/datetime
-required:
-- submitter_id
-- project_id
-- md5
-- cmd
-- filename
-submittable: true
-systemProperties:
-- id
-- project_id
-- created_datetime
-- updated_datetime
-title: Command
-type: object
-uniqueKeys:
-- - id
-- - project_id
-  - submitter_id
-validators: null
+
