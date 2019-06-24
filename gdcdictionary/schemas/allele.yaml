@@ -20,7 +20,6 @@ required:
 - strand
 - start
 - genome
-- hugo_symbol
 - end
 - alternate_bases
 
