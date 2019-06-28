@@ -82,7 +82,7 @@ properties:
   submitter_compound_id:
     type: string
   aliquot:
-    $ref: _definitions.yaml#/to_oner
+    $ref: _definitions.yaml#/to_one
   compounds:
     $ref: _definitions.yaml#/to_many
   project_id:
