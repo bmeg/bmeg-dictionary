@@ -1,48 +1,51 @@
-$schema: http://json-schema.org/draft-04/schema#
+$schema: "http://json-schema.org/draft-04/schema#"
 
-id: pfam_clan
+id: "pfam_clan"
 title: PFAMClan
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
 category: reference
-description: Definitions for PFAMClan
+description: >
+  Related Pfam entries are grouped together into clans. The relationship between 
+  families in a clan may be defined by:
+    - sequence similarity (whilst still originating from a common ancestor);
+    - similarity of known three-dimensional structures;
+    - functional similarity;
+    - similarity between their profile HMMs, as determined by algorithms such as HHsearch.
 additionalProperties: false
 submittable: true
 validators: null
 
-required:
-- submitter_id
-- accession
-- project_id
-- description
-- clan_id
-
 systemProperties:
-- id
-- project_id
-- created_datetime
-- updated_datetime
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+
+required:
+  - submitter_id
+  - accession
+  - project_id
+  - description
+  - clan_id
 
 uniqueKeys:
-- - id
-- - project_id
-  - submitter_id
+  - [id]
+  - [project_id, submitter_id]
 
 links:
-- backref: pfam_clans
-  label: pfam_families
-  multiplicity: many_to_many
-  name: pfam_families
-  required: false
-  target_type: pfam_family
+  - backref: pfam_clans
+    label: pfam_families
+    multiplicity: many_to_many
+    name: pfam_families
+    required: false
+    target_type: pfam_family
 
 properties:
   accession:
     type: string
-  created_datetime:
-    $ref: _definitions.yaml#/datetime
   description:
     type: string
   clan_id:
@@ -53,9 +56,14 @@ properties:
     $ref: _definitions.yaml#/project_id
   submitter_id:
     type:
-    - string
-    - 'null'
+      - string
+      - 'null'
+  id:
+    $ref: _definitions.yaml#/UUID
+    systemAlias: node_id
   type:
     type: string
+  created_datetime:
+    $ref: _definitions.yaml#/datetime
   updated_datetime:
     $ref: _definitions.yaml#/datetime

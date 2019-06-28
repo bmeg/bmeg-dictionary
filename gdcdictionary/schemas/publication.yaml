@@ -1,36 +1,38 @@
-$schema: http://json-schema.org/draft-04/schema#
+$schema: "http://json-schema.org/draft-04/schema#"
 
-id: publication
+id: "publication"
 title: Publication
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
 category: reference
-description: Definitions for Publication
+description: >
+  A publication.
 additionalProperties: false
 submittable: true
 validators: null
 
-required:
-- url
-- submitter_id
-- project_id
-
 systemProperties:
-- id
-- project_id
-- created_datetime
-- updated_datetime
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+
+required:
+  - url
+  - submitter_id
+  - project_id
 
 uniqueKeys:
-- - id
-- - project_id
-  - submitter_id
+  - [id]
+  - [project_id, submitter_id]
 
 links: []
 
 properties:
+  url:
+    type: string
   abstract:
     type:
     - 'null'
@@ -43,23 +45,10 @@ properties:
     type:
     - 'null'
     - array
-  created_datetime:
-    $ref: _definitions.yaml#/datetime
   date:
     type:
     - 'null'
     - string
-  g2p_associations:
-    $ref: _definitions.yaml#/to_many
-  id:
-    $ref: _definitions.yaml#/UUID
-    systemAlias: node_id
-  project_id:
-    $ref: _definitions.yaml#/project_id
-  submitter_id:
-    type:
-    - string
-    - 'null'
   text:
     type:
     - 'null'
@@ -68,9 +57,20 @@ properties:
     type:
     - 'null'
     - string
+  g2p_associations:
+    $ref: _definitions.yaml#/to_many
+  project_id:
+    $ref: _definitions.yaml#/project_id
+  submitter_id:
+    type:
+      - string
+      - 'null'
+  id:
+    $ref: _definitions.yaml#/UUID
+    systemAlias: node_id
   type:
     type: string
+  created_datetime:
+    $ref: _definitions.yaml#/datetime
   updated_datetime:
     $ref: _definitions.yaml#/datetime
-  url:
-    type: string

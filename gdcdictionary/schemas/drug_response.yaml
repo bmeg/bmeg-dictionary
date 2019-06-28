@@ -1,104 +1,102 @@
-$schema: http://json-schema.org/draft-04/schema#
+$schema: "http://json-schema.org/draft-04/schema#"
 
-id: drug_response
+id: "drug_response"
 title: DrugResponse
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
 category: genomic
-description: Definitions for DrugResponse
+description: >
+  Drug response curve fit parameters.
 additionalProperties: false
 submittable: true
 validators: null
 
-required:
-- submitter_id
-- submitter_compound_id
-- project_id
-
 systemProperties:
-- id
-- project_id
-- created_datetime
-- updated_datetime
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+
+required:
+  - submitter_id
+  - submitter_compound_id
+  - project_id
 
 uniqueKeys:
-- - id
-- - project_id
-  - submitter_id
+  - [id]
+  - [project_id, submitter_id]
 
 links:
-- backref: drug_response
-  label: aliquot
-  multiplicity: one_to_one
-  name: aliquot
-  required: false
-  target_type: aliquot
-- backref: drug_responses
-  label: compounds
-  multiplicity: many_to_many
-  name: compounds
-  required: false
-  target_type: compound
+  - backref: drug_response
+    label: aliquot
+    multiplicity: one_to_one
+    name: aliquot
+    required: false
+    target_type: aliquot
+  - backref: drug_responses
+    label: compounds
+    multiplicity: many_to_many
+    name: compounds
+    required: false
+    target_type: compound
 
 properties:
   act_area:
     type:
-    - 'null'
-    - number
+      - 'null'
+      - number
   activity_data_median:
     type:
-    - 'null'
-    - array
+      - 'null'
+      - array
   activity_sd:
     type:
-    - 'null'
-    - array
-  aliquot:
-    $ref: _definitions.yaml#/to_one
+      - 'null'
+      - array
   amax:
     type:
-    - 'null'
-    - number
+      - 'null'
+      - number
   auc:
     type:
-    - 'null'
-    - number
-  compounds:
-    $ref: _definitions.yaml#/to_many
-  created_datetime:
-    $ref: _definitions.yaml#/datetime
+      - 'null'
+      - number
   doses_um:
     type:
-    - 'null'
-    - array
+      - 'null'
+      - array
   ec50:
     type:
-    - 'null'
-    - number
+      - 'null'
+      - number
   fit_type:
     type:
-    - 'null'
-    - string
+      - 'null'
+      - string
   ic50:
     type:
-    - 'null'
-    - number
+      - 'null'
+      - number
+  submitter_compound_id:
+    type: string
+  aliquot:
+    $ref: _definitions.yaml#/to_oner
+  compounds:
+    $ref: _definitions.yaml#/to_many
+  project_id:
+    $ref: _definitions.yaml#/project_id
+  submitter_id:
+    type:
+      - string
+      - 'null'
   id:
     $ref: _definitions.yaml#/UUID
     systemAlias: node_id
-  num_data:
-    type:
-    - 'null'
-    - number
-  project_id:
-    $ref: _definitions.yaml#/project_id
-  submitter_compound_id:
-    type: string
-  submitter_id:
-    type: string
   type:
     type: string
+  created_datetime:
+    $ref: _definitions.yaml#/datetime
   updated_datetime:
     $ref: _definitions.yaml#/datetime

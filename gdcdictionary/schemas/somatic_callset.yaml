@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "protein"
-title: Protein
+id: "somatic_callset"
+title: SomaticCallset
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
-category: reference
+category: genomic
 description: >
-  A protein.
+  A collection of somatic variants.
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,48 +21,65 @@ systemProperties:
 
 required:
   - submitter_id
+  - tumor_aliquot_id
   - project_id
-  - protein_id
-  - genome
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
 links:
-  - backref: protein
-    label: transcript
-    multiplicity: one_to_one
-    name: transcript
-    required: false
-    target_type: transcript
-  - backref: proteins
-    label: pfam_families
+  - backref: somatic_callsets
+    label: alleles
     multiplicity: many_to_many
-    name: pfam_families
+    name: alleles
     required: false
-    target_type: pfam_family
+    target_type: allele
     properties:
-      start:
+      ref:
+        type: string
+      alt:
+        type: string
+      t_depth:
         type: integer
-      end:
+      t_ref_count:
         type: integer
+      t_alt_count:
+        type: integer
+      n_depth:
+        type: integer
+      n_ref_count:
+        type: integer
+      n_alt_count:
+        type: integer
+      filter:
+        type: string
+      methods:
+        type: array
+        items:
+          type: string
+      ensembl_transcript:
+        type: string
+      ensembl_gene:
+        type: string
+  - backref: somatic_callsets
+    label: aliquots
+    multiplicity: many_to_many
+    name: aliquots
+    required: false
+    target_type: aliquot
 
 properties:
-  protein_id:
+  tumor_aliquot_id:
     type: string
-  genome:
-    $ref: _definitions.yaml#/genome
-  uniprot_id:
+  normal_aliquot_id:
     type:
-    - 'null'
-    - string
-  pfam_families:
+      - 'null'
+      - string
+  aliquots:
     $ref: _definitions.yaml#/to_many
-  protein_structures:
+  alleles:
     $ref: _definitions.yaml#/to_many
-  transcript:
-      $ref: _definitions.yaml#/to_one
   project_id:
     $ref: _definitions.yaml#/project_id
   submitter_id:

@@ -1,96 +1,94 @@
-$schema: http://json-schema.org/draft-04/schema#
+$schema: "http://json-schema.org/draft-04/schema#"
 
-id: allele
+id: "allele"
 title: Allele
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
 category: genomic
-description: Definitions for Allele
+description: >
+  One of two or more alternative forms of a gene that arise by mutation and are found at the same place on a chromosome.
 additionalProperties: false
 submittable: true
 validators: null
 
-required:
-- submitter_id
-- project_id
-- reference_bases
-- chromosome
-- strand
-- start
-- genome
-- end
-- alternate_bases
-
 systemProperties:
-- id
-- project_id
-- created_datetime
-- updated_datetime
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+
+required:
+  - submitter_id
+  - project_id
+  - reference_bases
+  - chromosome
+  - strand
+  - start
+  - genome
+  - end
+  - alternate_bases
 
 uniqueKeys:
-- - id
-- - project_id
-  - submitter_id
+  - [id]
+  - [project_id, submitter_id]
 
 links:
-- backref: alleles
-  label: gene
-  multiplicity: many_to_one
-  name: gene
-  required: false
-  target_type: gene
+  - backref: alleles
+    label: gene
+    multiplicity: many_to_one
+    name: gene
+    required: false
+    target_type: gene
 
 properties:
+  reference_bases:
+    type: string
   alternate_bases:
     type: string
-  callsets:
-    $ref: _definitions.yaml#/to_many
+  genome:
+    $ref: _definitions.yaml#/genome
   chromosome:
-     type: string
-  created_datetime:
-    $ref: _definitions.yaml#/datetime
-  dbSNP_RS:
-    type:
-    - 'null'
-    - string
-  effect:
-    type:
-    - 'null'
-    - string
+     $ref: _definitions.yaml#/chromosome
+  start:
+    type: integer
   end:
     type: integer
+  strand:
+    $ref: _definitions.yaml#/strand
+  dbSNP_RS:
+    type:
+      - 'null'
+      - string
+  effect:
+    type:
+      - 'null'
+      - string
   ensembl_transcript:
     type:
-    - 'null'
-    - string
+      - 'null'
+      - string
+  hugo_symbol:
+    type: string
+  somatic_callsets:
+    $ref: _definitions.yaml#/to_many
   g2p_associations:
     $ref: _definitions.yaml#/to_many
   gene:
     $ref: _definitions.yaml#/to_one
-  genome:
-    $ref: _definitions.yaml#/genome
-  hugo_symbol:
-    type: string
+  project_id:
+    $ref: _definitions.yaml#/project_id
+  submitter_id:
+    type:
+      - string
+      - 'null'
   id:
     $ref: _definitions.yaml#/UUID
     systemAlias: node_id
-  project_id:
-    $ref: _definitions.yaml#/project_id
-  reference_bases:
-    type: string
-  start:
-    type: integer
-  strand:
-    $ref: _definitions.yaml#/strand
-  submitter_id:
-    type:
-    - string
-    - 'null'
   type:
-    type:
-    - 'null'
-    - string
+    type: string
+  created_datetime:
+    $ref: _definitions.yaml#/datetime
   updated_datetime:
     $ref: _definitions.yaml#/datetime

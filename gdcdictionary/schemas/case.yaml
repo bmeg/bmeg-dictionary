@@ -1,32 +1,33 @@
-$schema: http://json-schema.org/draft-04/schema#
+$schema: "http://json-schema.org/draft-04/schema#"
 
-id: case
+id: "case"
 title: Case
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
 category: administrative
-description: Definitions for Case
+description: >
+  The collection of all data related to a specific subject in the
+  context of a specific experiment.
 additionalProperties: false
 submittable: true
 validators: null
 
-required:
-- submitter_id
-- project_id
-- case_id
-
 systemProperties:
-- id
-- project_id
-- created_datetime
-- updated_datetime
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+
+required:
+  - submitter_id
+  - project_id
+  - case_id
 
 uniqueKeys:
-- - id
-- - project_id
-  - submitter_id
+  - [id]
+  - [project_id, submitter_id]
 
 links:
 - backref: cases
@@ -55,10 +56,6 @@ properties:
     type:
     - 'null'
     - object
-  compounds:
-    $ref: _definitions.yaml#/to_many
-  created_datetime:
-    $ref: _definitions.yaml#/datetime
   gdc_attributes:
     type:
     - 'null'
@@ -67,23 +64,26 @@ properties:
     type:
     - 'null'
     - object
-  id:
-    $ref: _definitions.yaml#/UUID
-    systemAlias: node_id
+  compounds:
+    $ref: _definitions.yaml#/to_many
   phenotypes:
     $ref: _definitions.yaml#/to_many
-  project_id:
-    $ref: _definitions.yaml#/project_id
   projects:
     $ref: _definitions.yaml#/to_many
   samples:
     $ref: _definitions.yaml#/to_many
+  project_id:
+    $ref: _definitions.yaml#/project_id
   submitter_id:
     type:
-    - string
-    - 'null'
+      - string
+      - 'null'
+  id:
+    $ref: _definitions.yaml#/UUID
+    systemAlias: node_id
   type:
     type: string
+  created_datetime:
+    $ref: _definitions.yaml#/datetime
   updated_datetime:
     $ref: _definitions.yaml#/datetime
-
