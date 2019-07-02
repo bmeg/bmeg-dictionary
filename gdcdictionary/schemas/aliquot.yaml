@@ -31,9 +31,9 @@ uniqueKeys:
 
 links:
   - backref: aliquots
-    label: samples
-    multiplicity: many_to_many
-    name: samples
+    label: sample
+    multiplicity: many_to_one
+    name: sample
     required: false
     target_type: sample
   - backref: aliquots
@@ -68,8 +68,8 @@ properties:
     $ref: _definitions.yaml#/to_many
   projects:
     $ref: _definitions.yaml#/to_many
-  samples:
-    $ref: _definitions.yaml#/to_many
+  sample:
+    $ref: _definitions.yaml#/to_one
   transcript_expressions:
     $ref: _definitions.yaml#/to_many
   project_id:
