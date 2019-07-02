@@ -62,9 +62,9 @@ properties:
       - 'null'
       - integer
   strand:
-    type:
-      - 'null'
-      - _definitions.yaml#/strand
+    oneOf:
+      - type: 'null'
+      - $ref: _definitions.yaml#/strand
   myvariantinfo:
     type:
     - 'null'
