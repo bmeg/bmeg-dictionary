@@ -48,6 +48,10 @@ links:
   name: phenotypes
   required: false
   target_type: phenotype
+- label: same_as
+  multiplicity: many_to_many
+  name: same_as
+  target_type: case
 
 properties:
   case_id:
@@ -71,6 +75,8 @@ properties:
   projects:
     $ref: _definitions.yaml#/to_many
   samples:
+    $ref: _definitions.yaml#/to_many
+  same_as:
     $ref: _definitions.yaml#/to_many
   project_id:
     $ref: _definitions.yaml#/project_id
