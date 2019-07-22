@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "publication"
-title: Publication
+id: "genomic_feature"
+title: GenomicFeature
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
 category: reference
 description: >
-  A publication.
+  An abstract genomic feature
 additionalProperties: false
 submittable: true
 validators: null
@@ -20,44 +20,60 @@ systemProperties:
   - updated_datetime
 
 required:
-  - url
   - submitter_id
   - project_id
+  - name
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
-links: []
+links:
+  - backref: genomic_features
+    label: genes
+    multiplicity: many_to_many
+    name: genes
+    required: false
+    target_type: gene
 
 properties:
-  url:
+  annotations:
+    type:
+      - 'null'
+      - array
+  effect:
+    type:
+      - 'null'
+      - string
+  genome:
+    oneOf:
+      - type: 'null'
+      - $ref: _definitions.yaml#/genome
+  chromosome:
+    oneOf:
+      - type: 'null'
+      - $ref: _definitions.yaml#/chromosome
+  end:
+    type:
+      - 'null'
+      - integer
+  start:
+    type:
+      - 'null'
+      - integer
+  strand:
+    oneOf:
+      - type: 'null'
+      - $ref: _definitions.yaml#/strand
+  myvariantinfo:
+    type:
+    - 'null'
+    - object
+  name:
     type: string
-  abstract:
-    type:
-    - 'null'
-    - string
-  author:
-    type:
-    - 'null'
-    - array
-  citation:
-    type:
-    - 'null'
-    - array
-  date:
-    type:
-    - 'null'
-    - string
-  text:
-    type:
-    - 'null'
-    - string
-  title:
-    type:
-    - 'null'
-    - string
   g2p_associations:
+    $ref: _definitions.yaml#/to_many
+  genes:
     $ref: _definitions.yaml#/to_many
   project_id:
     $ref: _definitions.yaml#/project_id

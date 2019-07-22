@@ -1,15 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "aliquot"
-title: Aliquot
+id: "drug_response"
+title: DrugResponse
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
-category: biospecimen
+category: genomic
 description: >
-  Pertaining to a portion of the whole; any one of two or more samples of something, of the same
-  volume or weight.
+  Drug response curve fit parameters.
 additionalProperties: false
 submittable: true
 validators: null
@@ -22,55 +21,69 @@ systemProperties:
 
 required:
   - submitter_id
+  - submitter_compound_id
   - project_id
-  - aliquot_id
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
 links:
-  - backref: aliquots
-    label: sample
-    multiplicity: many_to_one
-    name: sample
+  - backref: drug_response
+    label: aliquot
+    multiplicity: one_to_one
+    name: aliquot
     required: false
-    target_type: sample
-  - backref: aliquots
-    label: projects
+    target_type: aliquot
+  - backref: drug_responses
+    label: compounds
     multiplicity: many_to_many
-    name: projects
+    name: compounds
     required: false
-    target_type: project
+    target_type: compound
 
 properties:
-  aliquot_id:
+  act_area:
+    type:
+      - 'null'
+      - number
+  activity_data_median:
+    type:
+      - 'null'
+      - array
+  activity_sd:
+    type:
+      - 'null'
+      - array
+  amax:
+    type:
+      - 'null'
+      - number
+  auc:
+    type:
+      - 'null'
+      - number
+  doses_um:
+    type:
+      - 'null'
+      - array
+  ec50:
+    type:
+      - 'null'
+      - number
+  fit_type:
+    type:
+      - 'null'
+      - string
+  ic50:
+    type:
+      - 'null'
+      - number
+  submitter_compound_id:
     type: string
-  cellline_attributes:
-    type:
-      - 'null'
-      - object
-  gdc_attributes:
-    type:
-      - 'null'
-      - object
-  gene_expressions:
-    $ref: _definitions.yaml#/to_many
-  gtex_attributes:
-    type:
-      - 'null'
-      - object
-  drug_responses:
-    $ref: _definitions.yaml#/to_many
-  somatic_callsets:
-    $ref: _definitions.yaml#/to_many
-  copy_number_alterations:
-    $ref: _definitions.yaml#/to_many
-  projects:
-    $ref: _definitions.yaml#/to_many
-  sample:
+  aliquot:
     $ref: _definitions.yaml#/to_one
-  transcript_expressions:
+  compounds:
     $ref: _definitions.yaml#/to_many
   project_id:
     $ref: _definitions.yaml#/project_id

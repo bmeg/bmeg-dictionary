@@ -1,15 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "aliquot"
-title: Aliquot
+id: "allele"
+title: Allele
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
-category: biospecimen
+category: genomic
 description: >
-  Pertaining to a portion of the whole; any one of two or more samples of something, of the same
-  volume or weight.
+  One of two or more alternative forms of a gene that arise by mutation and are found at the same place on a chromosome.
 additionalProperties: false
 submittable: true
 validators: null
@@ -23,55 +22,61 @@ systemProperties:
 required:
   - submitter_id
   - project_id
-  - aliquot_id
+  - reference_bases
+  - chromosome
+  - strand
+  - start
+  - genome
+  - end
+  - alternate_bases
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
 links:
-  - backref: aliquots
-    label: sample
+  - backref: alleles
+    label: gene
     multiplicity: many_to_one
-    name: sample
+    name: gene
     required: false
-    target_type: sample
-  - backref: aliquots
-    label: projects
-    multiplicity: many_to_many
-    name: projects
-    required: false
-    target_type: project
+    target_type: gene
 
 properties:
-  aliquot_id:
+  reference_bases:
     type: string
-  cellline_attributes:
+  alternate_bases:
+    type: string
+  genome:
+    $ref: _definitions.yaml#/genome
+  chromosome:
+     $ref: _definitions.yaml#/chromosome
+  start:
+    type: integer
+  end:
+    type: integer
+  strand:
+    $ref: _definitions.yaml#/strand
+  dbSNP_RS:
     type:
       - 'null'
-      - object
-  gdc_attributes:
+      - string
+  effect:
     type:
       - 'null'
-      - object
-  gene_expressions:
-    $ref: _definitions.yaml#/to_many
-  gtex_attributes:
+      - string
+  ensembl_transcript:
     type:
       - 'null'
-      - object
-  drug_responses:
-    $ref: _definitions.yaml#/to_many
+      - string
+  hugo_symbol:
+    type: string
   somatic_callsets:
     $ref: _definitions.yaml#/to_many
-  copy_number_alterations:
+  g2p_associations:
     $ref: _definitions.yaml#/to_many
-  projects:
-    $ref: _definitions.yaml#/to_many
-  sample:
+  gene:
     $ref: _definitions.yaml#/to_one
-  transcript_expressions:
-    $ref: _definitions.yaml#/to_many
   project_id:
     $ref: _definitions.yaml#/project_id
   submitter_id:

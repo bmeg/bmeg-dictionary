@@ -276,3 +276,31 @@ ubiquitous_properties:
     $ref: "#/datetime"
   updated_datetime:
     $ref: "#/datetime"
+
+chromosome:
+  type: string
+  description: "Reference to a chromosome"
+  pattern: "^(?!chr).*$"
+
+strand:
+  type: string
+  description: "Reference to a chromosome strand"
+  enum:
+    - "+"
+    - "-"
+
+genome:
+  type: string
+  description: "Reference to a genome build"
+  enum:
+    - "GRCh37"
+    - "GRCh38"
+
+expression_metric:
+  type: string
+  description: "Expression metric"
+  enum:
+    - "TPM"
+    - "RPKM"
+    - "FPKM"
+    - "RAW_COUNT"

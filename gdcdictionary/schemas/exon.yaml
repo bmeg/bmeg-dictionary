@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "publication"
-title: Publication
+id: "exon"
+title: Exon
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
 category: reference
 description: >
-  A publication.
+  An exon.
 additionalProperties: false
 submittable: true
 validators: null
@@ -20,44 +20,41 @@ systemProperties:
   - updated_datetime
 
 required:
-  - url
   - submitter_id
   - project_id
+  - chromosome
+  - strand
+  - start
+  - genome
+  - end
+  - exon_id
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
-links: []
+links:
+  - backref: exons
+    label: transcripts
+    multiplicity: many_to_many
+    name: transcripts
+    required: false
+    target_type: transcript
 
 properties:
-  url:
+  exon_id:
     type: string
-  abstract:
-    type:
-    - 'null'
-    - string
-  author:
-    type:
-    - 'null'
-    - array
-  citation:
-    type:
-    - 'null'
-    - array
-  date:
-    type:
-    - 'null'
-    - string
-  text:
-    type:
-    - 'null'
-    - string
-  title:
-    type:
-    - 'null'
-    - string
-  g2p_associations:
+  genome:
+    $ref: _definitions.yaml#/genome
+  chromosome:
+    $ref: _definitions.yaml#/chromosome
+  start:
+    type: integer
+  end:
+    type: integer
+  strand:
+    $ref: _definitions.yaml#/strand
+  transcripts:
     $ref: _definitions.yaml#/to_many
   project_id:
     $ref: _definitions.yaml#/project_id

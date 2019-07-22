@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "publication"
-title: Publication
+id: "transcript_expression"
+title: TranscriptExpression
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
-category: reference
+category: genomic
 description: >
-  A publication.
+  Transcript level expression values for an aliquot
 additionalProperties: false
 submittable: true
 validators: null
@@ -20,45 +20,37 @@ systemProperties:
   - updated_datetime
 
 required:
-  - url
   - submitter_id
   - project_id
+  - values
+  - method
+  - metric
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
-links: []
+links:
+  - backref: transcript_expressions
+    label: aliquot
+    multiplicity: many_to_one
+    name: aliquot
+    required: false
+    target_type: aliquot
 
 properties:
-  url:
+  method:
     type: string
-  abstract:
-    type:
-    - 'null'
-    - string
-  author:
-    type:
-    - 'null'
-    - array
-  citation:
-    type:
-    - 'null'
-    - array
-  date:
-    type:
-    - 'null'
-    - string
-  text:
-    type:
-    - 'null'
-    - string
-  title:
-    type:
-    - 'null'
-    - string
-  g2p_associations:
-    $ref: _definitions.yaml#/to_many
+  metric:
+    $ref: _definitions.yaml#/expression_metric
+  values:
+    type: object
+    propertyNames:
+      pattern: "^ENST[0-9]+"
+    additionalProperties:
+      type: number
+  aliquot:
+    $ref: _definitions.yaml#/to_one
   project_id:
     $ref: _definitions.yaml#/project_id
   submitter_id:

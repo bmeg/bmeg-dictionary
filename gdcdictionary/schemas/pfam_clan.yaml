@@ -1,14 +1,19 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "publication"
-title: Publication
+id: "pfam_clan"
+title: PFAMClan
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
 category: reference
 description: >
-  A publication.
+  Related Pfam entries are grouped together into clans. The relationship between 
+  families in a clan may be defined by:
+    - sequence similarity (whilst still originating from a common ancestor);
+    - similarity of known three-dimensional structures;
+    - functional similarity;
+    - similarity between their profile HMMs, as determined by algorithms such as HHsearch.
 additionalProperties: false
 submittable: true
 validators: null
@@ -20,44 +25,32 @@ systemProperties:
   - updated_datetime
 
 required:
-  - url
   - submitter_id
+  - accession
   - project_id
+  - description
+  - clan_id
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
-links: []
+links:
+  - backref: pfam_clans
+    label: pfam_families
+    multiplicity: many_to_many
+    name: pfam_families
+    required: false
+    target_type: pfam_family
 
 properties:
-  url:
+  accession:
     type: string
-  abstract:
-    type:
-    - 'null'
-    - string
-  author:
-    type:
-    - 'null'
-    - array
-  citation:
-    type:
-    - 'null'
-    - array
-  date:
-    type:
-    - 'null'
-    - string
-  text:
-    type:
-    - 'null'
-    - string
-  title:
-    type:
-    - 'null'
-    - string
-  g2p_associations:
+  description:
+    type: string
+  clan_id:
+    type: string
+  pfam_families:
     $ref: _definitions.yaml#/to_many
   project_id:
     $ref: _definitions.yaml#/project_id

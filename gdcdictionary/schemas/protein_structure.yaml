@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "publication"
-title: Publication
+id: "protein_structure"
+title: ProteinStructure
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
 category: reference
 description: >
-  A publication.
+  A protein structure.
 additionalProperties: false
 submittable: true
 validators: null
@@ -20,45 +20,27 @@ systemProperties:
   - updated_datetime
 
 required:
-  - url
   - submitter_id
   - project_id
+  - structure_id
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
-links: []
+links:
+  - backref: protein_structures
+    label: protein
+    multiplicity: many_to_one
+    name: protein
+    required: false
+    target_type: protein
 
 properties:
-  url:
+  structure_id:
     type: string
-  abstract:
-    type:
-    - 'null'
-    - string
-  author:
-    type:
-    - 'null'
-    - array
-  citation:
-    type:
-    - 'null'
-    - array
-  date:
-    type:
-    - 'null'
-    - string
-  text:
-    type:
-    - 'null'
-    - string
-  title:
-    type:
-    - 'null'
-    - string
-  g2p_associations:
-    $ref: _definitions.yaml#/to_many
+  protein:
+    $ref: _definitions.yaml#/to_one
   project_id:
     $ref: _definitions.yaml#/project_id
   submitter_id:
