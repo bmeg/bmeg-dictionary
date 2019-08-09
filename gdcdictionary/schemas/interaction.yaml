@@ -1,14 +1,15 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "gene"
-title: Gene
+id: "interaction"
+title: Interaction
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
-category: reference
+category: genomic
 description: >
-  A gene.
+  A biological interaction. This node represent an interaction between two or 
+  more entities (e.g. protein-protein, gene-drug, catalysis, or synthesis).
 additionalProperties: false
 submittable: true
 validators: null
@@ -22,53 +23,37 @@ systemProperties:
 required:
   - submitter_id
   - project_id
-  - description
-  - chromosome
-  - strand
-  - start
-  - genome
-  - end
-  - gene_id
-  - symbol
+  - source
+  - type
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
-links: []
+links:
+  - backref: interactions
+    label: participants
+    multiplicity: many_to_many
+    name: participants
+    required: true
+    target_type: gene
+  - backref: interactions
+    label: publications
+    multiplicity: many_to_many
+    name: publications
+    required: false
+    target_type: publication
 
 properties:
-  gene_id:
+  source:
     type: string
-  description:
+  type:
     type: string
-  symbol:
-    type: string
-  genome:
-    $ref: _definitions.yaml#/genome
-  chromosome:
-    $ref: _definitions.yaml#/chromosome
-  start:
-    type: integer
-  end:
-    type: integer
-  strand:
-    $ref: _definitions.yaml#/strand
-  alleles:
-    $ref: _definitions.yaml#/to_many
-  interactions:
-    $ref: _definitions.yaml#/to_many
-  g2p_associations:
-    $ref: _definitions.yaml#/to_many
-  gene_ontology_terms:
-    $ref: _definitions.yaml#/to_many
-  gene_sets:
-    $ref: _definitions.yaml#/to_many
-  genomic_features:
+  participants:
     $ref: _definitions.yaml#/to_many
   pathways:
     $ref: _definitions.yaml#/to_many
-  transcripts:
+  publications:
     $ref: _definitions.yaml#/to_many
   project_id:
     $ref: _definitions.yaml#/project_id
