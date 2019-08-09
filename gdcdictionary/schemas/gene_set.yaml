@@ -48,6 +48,20 @@ properties:
     type: string
   historical_names:
     type: string
+  geoid:
+    type: string
+  exact_source:
+    type: string
+  geneset_listing_url:
+    type: string
+  external_details_url:
+    type: string
+  chip:
+    type: string
+  category_code:
+    type: string
+  sub_category_code:
+    type: string
   contributor:
     type: string
   contributor_org:
@@ -55,14 +69,6 @@ properties:
   description_brief:
     type: string
   description_full:
-    type: string
-  geoid:
-    type: string
-  chip:
-    type: string
-  category_code:
-    type: string
-  sub_category_code:
     type: string
   genes:
     $ref: _definitions.yaml#/to_many
