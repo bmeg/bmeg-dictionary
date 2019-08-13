@@ -32,9 +32,9 @@ uniqueKeys:
 
 links:
   - backref: interactions
-    label: participants
+    label: genes
     multiplicity: many_to_many
-    name: participants
+    name: genes
     required: true
     target_type: gene
   - backref: interactions
@@ -49,7 +49,7 @@ properties:
     type: string
   type:
     type: string
-  participants:
+  genes:
     $ref: _definitions.yaml#/to_many
   pathway_components:
     $ref: _definitions.yaml#/to_many
