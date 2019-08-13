@@ -66,6 +66,8 @@ properties:
     $ref: _definitions.yaml#/to_many
   genomic_features:
     $ref: _definitions.yaml#/to_many
+  pathway_components:
+    $ref: _definitions.yaml#/to_many
   pathways:
     $ref: _definitions.yaml#/to_many
   transcripts:

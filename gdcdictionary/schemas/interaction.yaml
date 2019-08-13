@@ -51,6 +51,8 @@ properties:
     type: string
   participants:
     $ref: _definitions.yaml#/to_many
+  pathway_components:
+    $ref: _definitions.yaml#/to_many
   pathways:
     $ref: _definitions.yaml#/to_many
   publications:
