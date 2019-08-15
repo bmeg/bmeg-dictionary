@@ -41,12 +41,6 @@ links:
     name: interactions
     required: false
     target_type: interaction
-  - backref: pathways
-    label: pathway_components
-    multiplicity: many_to_many
-    name: pathway_components
-    required: false
-    target_type: pathway_component
   - backref: parent_pathways
     label: sub_pathways
     multiplicity: many_to_many
@@ -60,8 +54,6 @@ properties:
   genes:
     $ref: _definitions.yaml#/to_many
   interactions:
-    $ref: _definitions.yaml#/to_many
-  pathway_components:
     $ref: _definitions.yaml#/to_many
   publications:
     $ref: _definitions.yaml#/to_many

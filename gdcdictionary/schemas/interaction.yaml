@@ -31,10 +31,10 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 links:
-  - backref: interactions
-    label: genes
+  - backref: interaction_input
+    label: interaction_output
     multiplicity: many_to_many
-    name: genes
+    name: interaction_output
     required: true
     target_type: gene
   - backref: interactions
@@ -49,9 +49,7 @@ properties:
     type: string
   type:
     type: string
-  genes:
-    $ref: _definitions.yaml#/to_many
-  pathway_components:
+  interaction_output:
     $ref: _definitions.yaml#/to_many
   pathways:
     $ref: _definitions.yaml#/to_many
