@@ -20,8 +20,6 @@ systemProperties:
 
 required:
   - submitter_id
-  - term_id
-  - term
   - project_id
 
 uniqueKeys:
@@ -36,16 +34,59 @@ links:
     required: false
     target_type: project
 
-
 properties:
-  name:
+  pubchem_id:
+    type: 
+      - 'null'
+      - string
+  chebi_id:
+    type: 
+      - 'null'
+      - string
+  chembl_id:
+    type: 
+      - 'null'
+      - string
+  drugbank_id:
+    type: 
+      - 'null'
+      - string
+  synonym:
+    type: 
+      - 'null'
+      - string
+  inchi:
+    type: 
+      - 'null'
+      - string
+  inchi_key:
+    type: 
+      - 'null'
+      - string
+  usan_stem_definition:
+    type: 
+      - 'null'
+      - string
+  taxonomy:
+    type: 
+      - 'null'
+      - object
+  approved_countries:
+    type: 
+      - 'null'
+      - array
+  source_url:
+    type: 
+      - 'null'
+      - string
+  id_source:
+    type: 
+      - 'null'
+      - string
+  source_url:
     type:
       - 'null'
       - string
-  term:
-    type: string
-  term_id:
-    type: string
   cases:
     $ref: _definitions.yaml#/to_many
   drug_responses:
