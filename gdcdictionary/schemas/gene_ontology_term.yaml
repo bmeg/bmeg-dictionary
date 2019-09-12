@@ -68,7 +68,7 @@ links:
   - backref: parent_terms
     label: child_terms
     multiplicity: many_to_many
-    name: gene_ontology_terms
+    name: child_terms
     required: false
     target_type: gene_ontology_term
 

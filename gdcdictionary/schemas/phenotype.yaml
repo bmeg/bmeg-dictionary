@@ -30,7 +30,14 @@ uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
-links: []
+links:
+  - backref: parent_terms
+    label: child_terms
+    multiplicity: many_to_many
+    name: parent_terms
+    required: false
+    target_type: phenotype
+
 
 properties:
   term:
@@ -44,6 +51,10 @@ properties:
   cases:
     $ref: _definitions.yaml#/to_many
   g2p_associations:
+    $ref: _definitions.yaml#/to_many
+  child_terms:
+    $ref: _definitions.yaml#/to_many
+  parent_terms:
     $ref: _definitions.yaml#/to_many
   project_id:
     $ref: _definitions.yaml#/project_id
