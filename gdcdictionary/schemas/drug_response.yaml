@@ -43,43 +43,49 @@ links:
     target_type: compound
 
 properties:
-  act_area:
-    type:
-      - 'null'
-      - number
-  activity_data_median:
+  dose_um:
     type:
       - 'null'
       - array
-  activity_sd:
+  response:
     type:
       - 'null'
       - array
-  amax:
+  hs:
     type:
       - 'null'
       - number
-  auc:
+  einf:
     type:
       - 'null'
       - number
-  doses_um:
-    type:
-      - 'null'
-      - array
   ec50:
     type:
       - 'null'
       - number
-  fit_type:
-    type:
-      - 'null'
-      - string
   ic50:
     type:
       - 'null'
       - number
-  submitter_compound_id:
+  aac:
+    type:
+      - 'null'
+      - number
+  dss1:
+    type:
+      - 'null'
+      - number
+  dss2:
+    type:
+      - 'null'
+      - number
+  dss3:
+    type:
+      - 'null'
+      - number
+  source_drug_name:
+    type: string
+  source_cell_name:
     type: string
   aliquot:
     $ref: _definitions.yaml#/to_one
