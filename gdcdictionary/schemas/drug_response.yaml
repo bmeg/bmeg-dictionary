@@ -21,7 +21,6 @@ systemProperties:
 
 required:
   - submitter_id
-  - submitter_compound_id
   - project_id
 
 uniqueKeys:
