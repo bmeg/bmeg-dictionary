@@ -58,6 +58,8 @@ links:
         type: array
         items:
           type: string
+      ensembl_protein:
+        type: string
       ensembl_transcript:
         type: string
       ensembl_gene:
