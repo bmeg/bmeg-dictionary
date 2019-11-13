@@ -22,12 +22,10 @@ systemProperties:
 required:
   - submitter_id
   - project_id
-  - reference_bases
   - chromosome
-  - strand
   - start
   - genome
-  - end
+  - reference_bases
   - alternate_bases
 
 uniqueKeys:
@@ -41,6 +39,24 @@ links:
     name: gene
     required: false
     target_type: gene
+  - backref: alleles
+    label: transcript
+    multiplicity: many_to_one
+    name: transcript
+    required: false
+    target_type: transcript
+  - backref: alleles
+    label: protein
+    multiplicity: many_to_one
+    name: protein
+    required: false
+    target_type: protein
+  - backref: alleles
+    label: pfam_family
+    multiplicity: many_to_one
+    name: pfam_family
+    required: false
+    target_type: pfam_family
 
 properties:
   reference_bases:
@@ -57,11 +73,67 @@ properties:
     type: integer
   strand:
     $ref: _definitions.yaml#/strand
-  dbSNP_RS:
+  amino_acids:
+    type: 
+      - 'null'
+      - string
+  codons:
+    type: 
+      - 'null'
+      - string
+  cds_position:
+    type: 
+      - 'null'
+      - string
+  cdna_position:
+    type: 
+      - 'null'
+      - string
+  protein_position:
+    type: 
+      - 'null'
+      - string
+  exon_number:
+    type: 
+      - 'null'
+      - string
+  variant_classification:
+    type: 
+      - 'null'
+      - string
+  variant_type:
+    type: 
+      - 'null'
+      - string
+  biotype:
+    type: 
+      - 'null'
+      - string
+  impact:
+    type: 
+      - 'null'
+      - string
+  dbsnp_rs:
     type:
       - 'null'
       - string
-  effect:
+  hgnc_id:
+    type:
+      - 'null'
+      - string
+  hgvsc:
+    type:
+      - 'null'
+      - string
+  hgvsp:
+    type:
+      - 'null'
+      - string
+  hgvsp_short:
+    type:
+      - 'null'
+      - string
+  ensembl_gene:
     type:
       - 'null'
       - string
@@ -69,13 +141,73 @@ properties:
     type:
       - 'null'
       - string
+  ensembl_protein:
+    type:
+      - 'null'
+      - string
   hugo_symbol:
-    type: string
+    type: 
+      - 'null'
+      - string
+  all_effects:
+    type: 
+      - 'null'
+      - string
+  polyphen:
+    type: 
+      - 'null'
+      - string
+  sift:
+    type: 
+      - 'null'
+      - string
+  exac_af:
+    type: 
+      - 'null'
+      - number
+  exac_af_afr:
+    type: 
+      - 'null'
+      - number
+  exac_af_amr:
+    type: 
+      - 'null'
+      - number
+  exac_af_adj:
+    type: 
+      - 'null'
+      - number
+  exac_af_eas:
+    type: 
+      - 'null'
+      - number
+  exac_af_fin:
+    type: 
+      - 'null'
+      - number
+  exac_af_nfe:
+    type: 
+      - 'null'
+      - number
+  exac_af_oth:
+    type: 
+      - 'null'
+      - number
+  exac_af_sas:
+    type: 
+      - 'null'
+      - number
   somatic_callsets:
     $ref: _definitions.yaml#/to_many
   g2p_associations:
     $ref: _definitions.yaml#/to_many
   gene:
+    $ref: _definitions.yaml#/to_one
+  transcript:
+    $ref: _definitions.yaml#/to_one
+  protein:
+    $ref: _definitions.yaml#/to_one
+  pfam_family:
     $ref: _definitions.yaml#/to_one
   project_id:
     $ref: _definitions.yaml#/project_id
