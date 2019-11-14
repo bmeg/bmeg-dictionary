@@ -43,42 +43,67 @@ links:
 
 properties:
   dose_um:
+    description: >
+      The drug doses (micromolar) for which responses were measured.
     type:
       - 'null'
       - array
   response:
+    description: >
+      The measured drug response for a given drug dose.
     type:
       - 'null'
       - array
   hs:
+    description: >
+      The Hill Slope
     type:
       - 'null'
       - number
   einf:
+    description: >
+      The maximum theoretical inhibition
     type:
       - 'null'
       - number
   ec50:
+    description: >
+      The dose at which 50% of the maximum response is observed
     type:
       - 'null'
       - number
   ic50:
+    description: >
+      The dose that achieves  50% inhibition of cell viability
     type:
       - 'null'
       - number
   aac:
+    description: >
+      Area above curve
     type:
       - 'null'
       - number
   dss1:
+    description: >
+      Drug sensitivity score 1; an AUC measurement with the baseline noise subtracted. 
+      https://www.ncbi.nlm.nih.gov/pubmed/24898935
     type:
       - 'null'
       - number
   dss2:
+    description: >
+      Drug sensitivity score 2; DSS1 further normalized by the logarithm of the top 
+      asymptote Rmax.
+      https://www.ncbi.nlm.nih.gov/pubmed/24898935
     type:
       - 'null'
       - number
   dss3:
+    description: >
+      Drug sensitivity score 3; DSS1 further normalized by the dose range over which 
+      the response exceeds the activity threshold Amin.
+      https://www.ncbi.nlm.nih.gov/pubmed/24898935
     type:
       - 'null'
       - number
