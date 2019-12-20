@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "protein"
-title: Protein
+id: "uniprot"
+title: Uniprot
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
 category: reference
 description: >
-  A protein.
+  A uniprot protein.
 additionalProperties: false
 submittable: true
 validators: null
@@ -22,7 +22,7 @@ systemProperties:
 required:
   - submitter_id
   - project_id
-  - protein_id
+  - uniprot_id
   - genome
 
 uniqueKeys:
@@ -30,36 +30,19 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 links:
-  - backref: protein
-    label: transcript
+  - backref: uniprot
+    label: protein
     multiplicity: one_to_one
-    name: transcript
+    name: protein
     required: false
-    target_type: transcript
-  - backref: proteins
-    label: pfam_families
-    multiplicity: many_to_many
-    name: pfam_families
-    required: false
-    target_type: pfam_family
-    properties:
-      start:
-        type: integer
-      end:
-        type: integer
+    target_type: protein
 
 properties:
-  protein_id:
+  uniprot_id:
     type: string
   genome:
     $ref: _definitions.yaml#/genome
-  pfam_families:
-    $ref: _definitions.yaml#/to_many
-  protein_structures:
-    $ref: _definitions.yaml#/to_many
-  transcript:
-      $ref: _definitions.yaml#/to_one
-  uniprot:
+  protein:
       $ref: _definitions.yaml#/to_one
   project_id:
     $ref: _definitions.yaml#/project_id
