@@ -36,6 +36,13 @@ links:
     name: protein
     required: false
     target_type: protein
+    properties:
+      sequence_match_percent:
+        type: integer
+      source:
+        type: string
+      type:
+        type: string
 
 properties:
   uniprot_id:
