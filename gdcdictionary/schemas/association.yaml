@@ -1,0 +1,60 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "association"
+title: Association
+type: object
+namespace: http://gdc.nci.nih.gov
+program: '*'
+project: '*'
+category: reference
+description: Definitions for Gene-Drug Associations
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - created_datetime
+  - updated_datetime
+
+required:
+  - submitter_id
+
+uniqueKeys:
+  - [id]
+  - [submitter_id]
+
+links:
+  - backref: associations
+    label: genes
+    multiplicity: many_to_many
+    name: genes
+    required: false
+    target_type: gene
+  - backref: associations
+    label: compounds
+    multiplicity: many_to_many
+    name: compounds
+    required: false
+    target_type: compound
+  - backref: associations
+    label: publications
+    multiplicity: many_to_many
+    name: publications
+    required: false
+    target_type: publication
+
+properties:
+  association_type:
+    type: string
+    description: "Gene-drug association keyword, example inhibitor"
+
+  id:
+    $ref: _definitions.yaml#/UUID
+    systemAlias: node_id
+  type:
+    type: string
+  created_datetime:
+    $ref: _definitions.yaml#/datetime
+  updated_datetime:
+    $ref: _definitions.yaml#/datetime
