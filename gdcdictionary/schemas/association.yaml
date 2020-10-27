@@ -14,15 +14,17 @@ validators: null
 
 systemProperties:
   - id
+  - project_id
   - created_datetime
   - updated_datetime
 
 required:
   - submitter_id
+  - project_id
 
 uniqueKeys:
   - [id]
-  - [submitter_id]
+  - [project_id, submitter_id]
 
 links:
   - backref: associations
@@ -48,7 +50,12 @@ properties:
   association_type:
     type: string
     description: "Gene-drug association keyword, example inhibitor"
-
+  project_id:
+    $ref: _definitions.yaml#/project_id
+  submitter_id:
+    type:
+      - string
+      - 'null'
   id:
     $ref: _definitions.yaml#/UUID
     systemAlias: node_id
