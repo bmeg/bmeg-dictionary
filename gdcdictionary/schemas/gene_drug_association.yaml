@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "gene_drug_interaction"
-title: GeneDrugInteraction
+id: "gene_drug_association"
+title: GeneDrugAssociation
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
@@ -18,28 +18,28 @@ systemProperties:
   - created_datetime
   - updated_datetime
 
-# required:
-#   - submitter_id
-#   - project_id
+required:
+  - submitter_id
+  - project_id
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
 links:
-  - backref: gene_drug_interaction
+  - backref: gene_drug_association
     label: genes
     multiplicity: many_to_many
     name: genes
     required: false
     target_type: gene
-  - backref: gene_drug_interaction
+  - backref: gene_drug_association
     label: compounds
     multiplicity: many_to_many
     name: compounds
     required: false
     target_type: compound
-  - backref: gene_drug_interaction
+  - backref: gene_drug_association
     label: publications
     multiplicity: many_to_many
     name: publications
@@ -50,8 +50,17 @@ properties:
   association_type:
     type: string
     description: "Gene-drug association keyword, example inhibitor"
+  compound:
+    type: string
+    description: "Raw compound ID"
+  proteins:
+    type: string
+    description: "Raw proteins"
   project_id:
     $ref: _definitions.yaml#/project_id
+  publications:
+    type: string
+    description: "Raw pubmed publication IDs"
   submitter_id:
     type:
       - string
