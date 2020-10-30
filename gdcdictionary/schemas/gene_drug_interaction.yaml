@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "association"
-title: Association
+id: "gene_drug_interaction"
+title: GeneDrugInteraction
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
@@ -27,19 +27,19 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 links:
-  - backref: gene_drug_association
+  - backref: gene_drug_interaction
     label: genes
     multiplicity: many_to_many
     name: genes
     required: false
     target_type: gene
-  - backref: gene_drug_association
+  - backref: gene_drug_interaction
     label: compounds
     multiplicity: many_to_many
     name: compounds
     required: false
     target_type: compound
-  - backref: gene_drug_association
+  - backref: gene_drug_interaction
     label: publications
     multiplicity: many_to_many
     name: publications
