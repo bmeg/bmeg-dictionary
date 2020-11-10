@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "gene_drug_association"
-title: GeneDrugAssociation
+id: "protein_drug_association"
+title: ProteinDrugAssociation
 type: object
 namespace: http://gdc.nci.nih.gov
 program: '*'
 project: '*'
 category: reference
-description: Definitions for Gene-Drug Associations
+description: Definitions for protein-Drug Associations
 additionalProperties: false
 submittable: true
 validators: null
@@ -27,19 +27,19 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 links:
-  - backref: gene_drug_association
-    label: genes
+  - backref: protein_drug_association
+    label: proteins
     multiplicity: many_to_many
-    name: genes
+    name: proteins
     required: false
-    target_type: gene
-  - backref: gene_drug_association
+    target_type: protein
+  - backref: protein_drug_association
     label: compounds
     multiplicity: many_to_many
     name: compounds
     required: false
     target_type: compound
-  - backref: gene_drug_association
+  - backref: protein_drug_association
     label: publications
     multiplicity: many_to_many
     name: publications
@@ -49,7 +49,7 @@ links:
 properties:
   association_type:
     type: string
-    description: "Gene-drug association keyword, example inhibitor"
+    description: "protein-drug association keyword, example inhibitor"
   compound:
     type: string
     description: "Raw compound ID"
