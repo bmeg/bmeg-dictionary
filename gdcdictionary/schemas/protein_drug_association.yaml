@@ -35,7 +35,7 @@ links:
     target_type: protein
   - backref: protein_drug_association
     label: compounds
-    multiplicity: many_to_many
+    multiplicity: one_to_one
     name: compounds
     required: false
     target_type: compound
@@ -54,12 +54,12 @@ properties:
     type: string
     description: "Raw compound ID"
   proteins:
-    type: string
+    type: array
     description: "Raw proteins"
   project_id:
     $ref: _definitions.yaml#/project_id
   publications:
-    type: string
+    type: array
     description: "Raw pubmed publication IDs"
   submitter_id:
     type:
