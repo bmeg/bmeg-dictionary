@@ -35,7 +35,7 @@ links:
     target_type: protein
   - backref: protein_drug_association
     label: compounds
-    multiplicity: one_to_one
+    multiplicity: many_to_many
     name: compounds
     required: false
     target_type: compound
