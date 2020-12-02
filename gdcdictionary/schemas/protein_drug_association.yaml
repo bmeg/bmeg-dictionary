@@ -1,0 +1,76 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "protein_drug_association"
+title: ProteinDrugAssociation
+type: object
+namespace: http://gdc.nci.nih.gov
+program: '*'
+project: '*'
+category: reference
+description: Definitions for protein-Drug Associations
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+
+required:
+  - submitter_id
+  - project_id
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+links:
+  - backref: protein_drug_association
+    label: proteins
+    multiplicity: many_to_many
+    name: proteins
+    required: false
+    target_type: protein
+  - backref: protein_drug_association
+    label: compounds
+    multiplicity: one_to_many
+    name: compounds
+    required: false
+    target_type: compound
+  - backref: protein_drug_association
+    label: publications
+    multiplicity: many_to_many
+    name: publications
+    required: false
+    target_type: publication
+
+properties:
+  association_type:
+    type: string
+    description: "protein-drug association keyword, example inhibitor"
+  compound:
+    type: string
+    description: "Raw compound ID"
+  proteins:
+    $ref: _definitions.yaml#/to_many
+    description: "Raw proteins"
+  project_id:
+    $ref: _definitions.yaml#/project_id
+  publications:
+    $ref: _definitions.yaml#/to_many
+    description: "Raw pubmed publication IDs"
+  submitter_id:
+    type:
+      - string
+      - 'null'
+  id:
+    $ref: _definitions.yaml#/UUID
+    systemAlias: node_id
+  type:
+    type: string
+  created_datetime:
+    $ref: _definitions.yaml#/datetime
+  updated_datetime:
+    $ref: _definitions.yaml#/datetime
