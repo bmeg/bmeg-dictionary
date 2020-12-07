@@ -34,6 +34,12 @@ links:
     required: false
     target_type: protein
   - backref: protein_drug_association
+    label: genes
+    multiplicity: many_to_many
+    name: genes
+    required: false
+    target_type: gene
+  - backref: protein_drug_association
     label: compounds
     multiplicity: one_to_many
     name: compounds
@@ -52,15 +58,18 @@ properties:
     description: "protein-drug association keyword, example inhibitor"
   compound:
     type: string
-    description: "Raw compound ID"
+    description: "Compound ID"
   proteins:
     $ref: _definitions.yaml#/to_many
-    description: "Raw proteins"
+    description: "Protein ids"
+  genes:
+    $ref: _definitions.yaml#/to_many
+    description: "Gene ids"
   project_id:
     $ref: _definitions.yaml#/project_id
   publications:
     $ref: _definitions.yaml#/to_many
-    description: "Raw pubmed publication IDs"
+    description: "Pubmed publication IDs"
   submitter_id:
     type:
       - string
