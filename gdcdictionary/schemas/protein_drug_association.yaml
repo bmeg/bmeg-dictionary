@@ -40,9 +40,9 @@ links:
     required: false
     target_type: gene
   - backref: protein_drug_association
-    label: compounds
-    multiplicity: one_to_many
-    name: compounds
+    label: compound
+    multiplicity: many_to_one
+    name: compound
     required: false
     target_type: compound
   - backref: protein_drug_association
