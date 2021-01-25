@@ -82,6 +82,10 @@ properties:
     type:
       - 'null'
       - string
+  morgan_fingerprint_2:
+    type:
+      - 'null'
+      - array
   cases:
     $ref: _definitions.yaml#/to_many
   drug_responses:
