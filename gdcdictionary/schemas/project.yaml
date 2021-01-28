@@ -35,6 +35,12 @@ links:
     name: programs
     required: false
     target_type: program
+  - backref: projects
+    label: compounds
+    multiplicity: many_to_many
+    name: compounds
+    required: false
+    target_type: compound
 
 properties:
   project_id:
