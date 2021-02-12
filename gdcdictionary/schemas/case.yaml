@@ -33,7 +33,7 @@ links:
 - backref: cases
   label: projects
   multiplicity: many_to_many
-  name: project
+  name: projects
   required: false
   target_type: project
 - backref: cases
