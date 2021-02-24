@@ -53,7 +53,8 @@ properties:
       - string
   synonym:
     type: array
-    items: string
+    items:
+      type: string
   inchi:
     type:
       - 'null'
