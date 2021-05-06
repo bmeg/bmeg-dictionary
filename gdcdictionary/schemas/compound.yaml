@@ -33,6 +33,17 @@ links:
     name: projects
     required: false
     target_type: project
+  - name: similar_compounds
+    label: similar_compounds
+    multiplicity: many_to_many
+    required: false
+    target_type: compound
+    target_field: compound
+    properties:
+      morgan_fingerprint_2_dice:
+        type: float
+      morgan_fingerprint_2_tanimoto:
+        type: float
 
 properties:
   pubchem_id:
@@ -83,6 +94,10 @@ properties:
       - 'null'
       - string
   morgan_fingerprint_2:
+    type:
+      - 'null'
+      - array
+  similar_compounds:
     type:
       - 'null'
       - array
