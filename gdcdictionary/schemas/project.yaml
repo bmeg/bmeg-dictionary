@@ -43,6 +43,16 @@ links:
     target_type: compound
 
 properties:
+  program_dbgap_accession_number:
+    type: string
+  program_id:
+    type: string
+  program_name:
+    type: string
+  name:
+    type: string
+  dbgap_accession_number:
+    type: string
   project_id:
     $ref: _definitions.yaml#/project_id
   gdc_attributes:
