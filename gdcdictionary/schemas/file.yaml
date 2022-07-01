@@ -19,11 +19,11 @@ systemProperties:
   - created_datetime
   - updated_datetime
 
-# required:
-#   - submitter_id
-  # - project_id
-#   - md5
-#   - file_id
+required:
+  - submitter_id
+  - project_id
+  - md5
+  - file_id
 
 uniqueKeys:
   - [id]
