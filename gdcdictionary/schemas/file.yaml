@@ -23,7 +23,6 @@ required:
   - submitter_id
   - project_id
   - md5
-  - file_id
 
 uniqueKeys:
   - [id]
@@ -45,8 +44,6 @@ properties:
   aliquot_id:
     type: string
   experimental_strategy:
-    type: string
-  file_id:
     type: string
   file_name:
     type: string
