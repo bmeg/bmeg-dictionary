@@ -23,7 +23,6 @@ required:
   - submitter_id
   - project_id
   - md5
-  - cmd
   - filename
 
 uniqueKeys:
@@ -36,6 +35,8 @@ properties:
   md5:
     type: string
   path:
+    type: string
+  filename:
     type: string
   input_to:
     $ref: _definitions.yaml#/to_many
