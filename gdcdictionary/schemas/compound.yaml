@@ -33,60 +33,75 @@ links:
     name: projects
     required: false
     target_type: project
+  - name: similar_compounds
+    label: similar_compounds
+    multiplicity: many_to_many
+    required: false
+    target_type: compound
+    target_field: compound
+    properties:
+      morgan_fingerprint_2_dice:
+        type: float
+      morgan_fingerprint_2_tanimoto:
+        type: float
 
 properties:
   pubchem_id:
-    type: 
+    type:
       - 'null'
       - string
   chebi_id:
-    type: 
+    type:
       - 'null'
       - string
   chembl_id:
-    type: 
+    type:
       - 'null'
       - string
   drugbank_id:
-    type: 
+    type:
       - 'null'
       - string
   synonym:
-    type: 
-      - 'null'
-      - string
+    type: array
+    items:
+      type: string
   inchi:
-    type: 
+    type:
       - 'null'
       - string
   inchi_key:
-    type: 
+    type:
       - 'null'
       - string
   usan_stem_definition:
-    type: 
+    type:
       - 'null'
       - string
   taxonomy:
-    type: 
+    type:
       - 'null'
       - object
   approved_countries:
-    type: 
+    type:
       - 'null'
       - array
-  source_url:
-    type: 
-      - 'null'
-      - string
-  id_source:
-    type: 
-      - 'null'
-      - string
   source_url:
     type:
       - 'null'
       - string
+  id_source:
+    type:
+      - 'null'
+      - string
+  morgan_fingerprint_2:
+    type:
+      - 'null'
+      - array
+  similar_compounds:
+    type:
+      - 'null'
+      - array
   cases:
     $ref: _definitions.yaml#/to_many
   drug_responses:

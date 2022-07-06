@@ -23,8 +23,6 @@ required:
   - submitter_id
   - project_id
   - md5
-  - cmd
-  - filename
 
 uniqueKeys:
   - [id]
@@ -33,6 +31,24 @@ uniqueKeys:
 links: []
 
 properties:
+  aliquot_submitter_id:
+    type: string
+  sample_id:
+    type: string
+  aliquots:
+    $ref: _definitions.yaml#/to_many
+  case_id:
+    type: string
+  data_format:
+    type: string
+  aliquot_id:
+    type: string
+  experimental_strategy:
+    type: string
+  file_name:
+    type: string
+  file_size:
+    type: integer
   md5:
     type: string
   path:
