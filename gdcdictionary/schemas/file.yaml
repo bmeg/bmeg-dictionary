@@ -29,7 +29,13 @@ uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
-links: []
+links:
+- backref: files
+  label: aliquots
+  multiplicity: many_to_many
+  name: aliquots
+  required: false
+  target_type: aliquot
 
 properties:
   aliquot_submitter_id:
